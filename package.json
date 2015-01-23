@@ -1,0 +1,23 @@
+{
+  "name": "adapt-documentMode",
+  "version": "0.0.1",
+  "description": "An extension to raise an alert if Internet Explorer is being run in Compatibility View. To be used in the Adapt Scorm Test.",
+  "main": "",
+  "scripts": {
+    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cgkineo/adapt-documentMode.git"
+  },
+  "author": "AdaptLearning",
+  "license": "GPL v3",
+  "bugs": {
+    "url": "https://github.com/cgkineo/adapt-documentMode/issues"
+  },
+  "devDependencies": {
+    "karma": "0.10",
+    "karma-mocha": "0.1.0",
+    "karma-expect": "1.1.0"
+  }
+}

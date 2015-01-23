@@ -1,0 +1,18 @@
+{
+  "name": "adapt-documentMode",
+  "version": "0.0.1",
+  "homepage": "https://github.com/cgkineo/adapt-documentMode",
+  "authors": [
+    "Dan Ghost <daniel.ghost@kineo.com>"
+  ],
+  "displayName" : "adapt-documentMode",
+  "extension" : "documentMode",
+  "description": "An extension to raise an alert if Internet Explorer is being run in Compatibility View. To be used in the Adapt Scorm Test.",
+  "main": "/js/adapt-documentMode.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPLv3",
+  "targetAttribute": "_documentMode"
+}
