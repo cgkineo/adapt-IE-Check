@@ -1,27 +1,35 @@
 /*
-* adapt-documentMode
+* adapt-IE-Check
 * License - https://github.com/cgkineo/adapt-documentMode/LICENSE
-* Maintainers - Dan Ghost <daniel.ghost@kineo.com>
+* Maintainers - Dan Ghost <daniel.ghost@kineo.com>, Matt Leathes <matt.leathes@kineo.com>
 */
+ 
 
-define(function(require) {
+define(['./ie-truth'], function(IEtruth) {
 
-    var Adapt = require('coreJS/adapt');
+	/**
+	* this has to be hard-coded here - as opposed to being in config.json - as if the user's running IE7 
+	* or lower, Adapt won't actually be able to get as far as loading config.json
+	*/
+	var /* const */ MIN_SUPPORTED_VERSION = 8;
 
-    function checkDocumentMode() {
-        var documentMode = document.documentMode;
-        var browserVersion = Adapt.device.version;
+	var ieVersionInfo = IEtruth();
 
-        if (documentMode < browserVersion) {
-            var message = "Your version of Internet Explorer (" + browserVersion + ") is running in a document mode lower than your current version (documentMode: " + documentMode + "). This will disable some critical functionality in your course. Please contact Kineo for support.";
-            alert(message);
-        }
-    }
+	if(ieVersionInfo.IsIE) {
+		var msg;
+		var wrongDocMode = (document.documentMode < ieVersionInfo.TrueVersion);
 
-    Adapt.on('app:dataReady', function() {
-        if (Adapt.device.browser === 'Internet Explorer') {
-            checkDocumentMode();
-        }
-    });
+		if(window.console && window.console.log) console.log("IE actual: " + ieVersionInfo.TrueVersion + ", acting: " + ieVersionInfo.ActingVersion + ", Compat View? " + ieVersionInfo.CompatibilityMode + ", doc mode: " + document.documentMode);
+
+		if(ieVersionInfo.TrueVersion < MIN_SUPPORTED_VERSION) {
+			msg = "The version of Internet Explorer you are using is not supported. The lowest supported version is Internet Explorer v" + MIN_SUPPORTED_VERSION;
+		} else if(ieVersionInfo.CompatibilityMode) {
+			msg = "Your browser reports that Compatibility View is enabled, which is not supported. Please check your Compatibility View settings (Tools > Compatibility View settings) to ensure the site this course is running from is not listed.";
+		} else if (wrongDocMode) {
+			msg = "Your browser reports that it is running in a document mode (" + document.documentMode + ") that is lower than the version of your browser (" + ieVersionInfo.TrueVersion + "). This will disable some critical functionality in your course. Please contact Kineo for support.";
+		}
+
+		if(msg !== undefined) alert(msg);
+	}
 
 });
