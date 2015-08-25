@@ -1,18 +1,19 @@
 {
-  "name": "adapt-documentMode",
+  "name": "adapt-IE-Check",
   "version": "0.0.1",
-  "homepage": "https://github.com/cgkineo/adapt-documentMode",
+  "homepage": "https://github.com/cgkineo/adapt-IE-Check",
   "authors": [
-    "Dan Ghost <daniel.ghost@kineo.com>"
+    "Dan Ghost <daniel.ghost@kineo.com>",
+		"Matt Leathes <matt.leathes@kineo.com>"
   ],
-  "displayName" : "adapt-documentMode",
-  "extension" : "documentMode",
-  "description": "An extension to raise an alert if Internet Explorer is being run in Compatibility View. To be used in the Adapt Scorm Test.",
-  "main": "/js/adapt-documentMode.js",
+  "displayName" : "adapt-IE-Check",
+  "extension" : "IE-Check",
+  "description": "An extension to raise an alert if Internet Explorer is lower than the supported version, being run in Enterprise Mode, Compatibility View or the wrong document mode. To be used in the Adapt Scorm Test",
+  "main": "/js/adapt-IE-Check.js",
   "keywords": [
     "adapt-plugin",
     "adapt-extension"
   ],
   "license": "GPLv3",
-  "targetAttribute": "_documentMode"
+  "targetAttribute": "_IE-Check"
 }

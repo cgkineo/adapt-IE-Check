@@ -1,19 +1,19 @@
 {
-  "name": "adapt-documentMode",
-  "version": "0.0.1",
-  "description": "An extension to raise an alert if Internet Explorer is being run in Compatibility View. To be used in the Adapt Scorm Test.",
+  "name": "adapt-IE-Check",
+  "version": "0.0.2",
+  "description": "An extension to raise an alert if Internet Explorer is lower than the supported version, being run in Enterprise Mode, Compatibility View or the wrong document mode. To be used in the Adapt Scorm Test.",
   "main": "",
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/cgkineo/adapt-documentMode.git"
+    "url": "git://github.com/cgkineo/adapt-IE-Check.git"
   },
   "author": "AdaptLearning",
   "license": "GPL v3",
   "bugs": {
-    "url": "https://github.com/cgkineo/adapt-documentMode/issues"
+    "url": "https://github.com/cgkineo/adapt-IE-Check/issues"
   },
   "devDependencies": {
     "karma": "0.10",
